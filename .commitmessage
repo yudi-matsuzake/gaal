@@ -1,0 +1,21 @@
+CHECKLIST:
+
+	* Estrutura
+		> script
+		> src/
+			> programa0/
+			> programa1/
+			> programa2/
+		>include/
+			> header0.h
+			> header1.h
+			> header2.h
+
+	* Makefile
+		[ ] Compilar tudas as pastas em src/
+			PS.: para achar todos os aquivos no diretório atual use "find `pwd -P` -regex '.*\.\(c\|h\)'"
+		[ ] Jogar os compiláveis em bin/
+		[ ] Linkar include
+	* Script linkador
+		[ ] Encontrar todos os compiláveis
+		[ ] À partir dos compiláveis, o script deve pegar suas opções e mandar para o executável
