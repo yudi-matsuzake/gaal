@@ -1,21 +1,12 @@
-CHECKLIST:
+DONE:
 
-	* Estrutura
-		> script
-		> src/
-			> programa0/
-			> programa1/
-			> programa2/
-		>include/
-			> header0.h
-			> header1.h
-			> header2.h
+	* Desistência de fazer em C pra aprender um pouco mais de python;
+	* Alterado pra python e estrutura feita
+	* linha de comando
 
-	* Makefile
-		[ ] Compilar tudas as pastas em src/
-			PS.: para achar todos os aquivos no diretório atual use "find `pwd -P` -regex '.*\.\(c\|h\)'"
-		[ ] Jogar os compiláveis em bin/
-		[ ] Linkar include
-	* Script linkador
-		[ ] Encontrar todos os compiláveis
-		[ ] À partir dos compiláveis, o script deve pegar suas opções e mandar para o executável
+TODO:
+	* Todo o programa
+	* Matrizes e suas operações:
+		[ ] Classe e estrutura
+		[ ] Multiplicação, soma, adição...
+		[ ] Impressão dela na tela de maneira maneira.
