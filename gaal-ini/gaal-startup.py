@@ -107,9 +107,12 @@ def ansi_colorize(text, color, state, prompt=False):
         return "\001\033[{0}{1}m\002{2}\001\033[00m\002".format(mod, col, text)
     return "\033[{0}{1}m{2}\033[00m".format(mod, col, text)
 
+#tentando colocar o nome do usuario
+import getpass
 
+user = getpass.getuser()
 class CustomPS1:
-    prompt = "[{0}]> "
+    prompt = str(user) + "@gaal" +  "[{0}]> "
 
     def __str__(self, prompt=True):
         """Return a bold green string containing the current place in Readline
@@ -130,7 +133,8 @@ class CustomPS1:
 
 # define custom secondary prompt based on readline history number
 class CustomPS2:
-    prompt = "({0})> "
+    spaces=' '*(len(user) + 1)
+    prompt = spaces + "... ({0})> "
 
     def __str__(self, prompt=True):
         """Return a bold yellow string containing the current place in

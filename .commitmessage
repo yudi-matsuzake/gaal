@@ -5,8 +5,13 @@ DONE:
 	* linha de comando
 
 TODO:
-	* Todo o programa
 	* Matrizes e suas operações:
-		[ ] Classe e estrutura
-		[ ] Multiplicação, soma, adição...
-		[ ] Impressão dela na tela de maneira maneira.
+		[ 1/2 ] Classe e estrutura
+		[ ] Operações
+			[ x ] Adição
+			[ x ] Subtração
+			[   ] Multiplicação
+				[ x ] com constante
+				[   ] de matrizes
+		[ x ] Impressão dela na tela de maneira maneira.
+	* Arrumar a instalação 
