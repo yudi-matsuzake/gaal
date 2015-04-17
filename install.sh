@@ -27,11 +27,16 @@ then
 	esac
 fi
 
+#GAMBIARRA
 echo \
-"
-Criando link...
-de $GAAL_PATH/$FILE_NAME
-para $WHEREIS_GAAL
-"
+"#!/bin/bash
+cd \"$GAAL_PATH\"
+./gaal.py
+cd -
+" > "$WHEREIS_GAAL"
 
-ln -vfs "$GAAL_PATH" "$WHEREIS_GAAL/$FILENAME" 
+if [ $? ]
+then
+	chmod +x "$WHEREIS_GAAL"
+	echo "Instalação concluída"
+fi
