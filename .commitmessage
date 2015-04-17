@@ -11,14 +11,15 @@ TODO:
 		[ ] Operações
 			[ x ] Adição
 			[ x ] Subtração
-			[   ] Multiplicação
+			[ x ] Multiplicação
 				[ x ] com constante
-				[   ] de matrizes
+				[ x ] de matrizes
 		[ x ] Impressão dela na tela de maneira maneira.
-		[ ] Funções para gerar matrizes
+		[  ] Funções para gerar matrizes
 			[ x ] Identidade
 			[ x ] Aleatória
 			[   ] Da entrada padrão
 				[ x ] Até o EOF
 				[   ] Com a ordem dada
+		[  ] Deixar as funções de operações auxiliares "privadas" com '_' na frente
 	* Arrumar a instalação (pensar em algo melhor que a gambirra atual AEUHAE)

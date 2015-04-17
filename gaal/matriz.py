@@ -38,7 +38,16 @@ def adicao(A, B, op):
 
 #Multiplicação
 def multiplicacao(A, B):
-	pass	
+	if A.n_coluna != B.n_linha:
+		return None
+	M = Matriz(A.n_linha, B.n_coluna)
+
+	for i in range(A.n_linha):
+		for j in range(B.n_coluna):
+			for k in range(A.n_coluna):
+				M[i][j] += A[i][k]*B[k][j]
+	
+	return M
 
 #---Estruturas---#
 class Matriz:
@@ -131,7 +140,6 @@ class Matriz:
 		if (not isinstance(other, Matriz)):
 			M = operacao(self, other, '*')
 		else:
-			if (self.n_linha == other.n_linha) and (self.n_coluna == other.n_coluna):
-				M = multiplicacao(self, other)
+			M = multiplicacao(self, other)
 
 		return M
