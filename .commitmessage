@@ -3,6 +3,7 @@ DONE:
 	* Desistência de fazer em C pra aprender um pouco mais de python;
 	* Alterado pra python e estrutura feita **MELHORADO**
 	* linha de comando
+	* Ordem da matriz identidade deveria ser quadrada
 
 TODO:
 	* Matrizes e suas operações:
@@ -14,4 +15,10 @@ TODO:
 				[ x ] com constante
 				[   ] de matrizes
 		[ x ] Impressão dela na tela de maneira maneira.
+		[ ] Funções para gerar matrizes
+			[ x ] Identidade
+			[ x ] Aleatória
+			[   ] Da entrada padrão
+				[ x ] Até o EOF
+				[   ] Com a ordem dada
 	* Arrumar a instalação 

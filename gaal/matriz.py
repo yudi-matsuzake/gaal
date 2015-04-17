@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
 #----------Operações-----------
 #generico
 def operacao(A, B, op):
