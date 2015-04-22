@@ -2,7 +2,7 @@
 
 #----------Operações-----------
 #generico
-def operacao(A, B, op):
+def _operacao(A, B, op):
 	M = Matriz(A.n_linha, A.n_coluna)
 
 	func = None
@@ -21,7 +21,7 @@ def operacao(A, B, op):
 	return M
 	
 #Adição
-def adicao(A, B, op):
+def _adicao(A, B, op):
 	func = None
 	if op == '+':
 		func = lambda x,y : x+y
@@ -37,7 +37,7 @@ def adicao(A, B, op):
 	return M
 
 #Multiplicação
-def multiplicacao(A, B):
+def _multiplicacao(A, B):
 	if A.n_coluna != B.n_linha:
 		return None
 	M = Matriz(A.n_linha, B.n_coluna)
@@ -113,10 +113,10 @@ class Matriz:
 		"""Soma duas matrizes Amxn, Bmxn. Ou uma matriz e uma constante."""
 		M = None
 		if (not isinstance(other, Matriz)) :
-			M = operacao(self, other, '+')
+			M = _operacao(self, other, '+')
 		else:
 			if (self.n_linha == other.n_linha) and (self.n_coluna == other.n_coluna):
-				M = adicao(self, other, '+')
+				M = _adicao(self, other, '+')
 
 		return M
 
@@ -125,21 +125,66 @@ class Matriz:
 		"""Subtrai duas matrizes Amxn, Bmxn. Ou uma matriz e uma constante."""
 		M = None
 		if (not isinstance(other, Matriz)) :
-			M = operacao(self, other, '-')
+			M = _operacao(self, other, '-')
 		else:
 			if (self.n_linha == other.n_linha) and (self.n_coluna == other.n_coluna):
-				M = adicao(self, other, '-')
+				M = _adicao(self, other, '-')
 
 		return M
 
+	#NEGAÇÃO
+	def __neg__(self):
+		return self*(-1)
 
 	#MULTIPLICAÇÃO
 	def __mul__(self, other):
 		"""Multiplica duas matrizes Aaxb Bbxc e retorna uma matriz Caxc"""
 		M = None
 		if (not isinstance(other, Matriz)):
-			M = operacao(self, other, '*')
+			M = _operacao(self, other, '*')
 		else:
-			M = multiplicacao(self, other)
+			M = _multiplicacao(self, other)
 
 		return M
+	
+
+	#COMPARE
+	def __eq__(self, other):
+		"""Compara duas matrizes"""
+		#Estou comparando matriz com matriz?
+		if (not isinstance(other, Matriz)):
+			#Se a constante for zero, a verificar se a matriz é nula
+			if other == 0:
+				for i in self:
+					for j in i:
+						if j != 0:
+							return False
+
+				return True
+			
+			return False
+		
+		#Tem a mesma ordem?
+		if (self.n_linha == other.n_linha) and (self.n_coluna == other.n_coluna):
+			for i in range(self.n_linha):
+				for j in range(self.n_coluna):
+					if self[i][j] != other[i][j]:
+						return False
+
+			return True
+		return False
+	
+	def __ne__(self, other):
+		return not (self == other)
+	#Iterator
+	def __iter__(self):
+		"""Retorna um iterador da lista da matriz"""
+		return self.matriz.__iter__()
+	
+	def transposta(self):
+		M = Matriz(self.n_coluna, self.n_linha)
+		for i in range(M.n_linha):
+			for j in range(M.n_coluna):
+				M[i][j] = self[j][i]
+		return M
+	

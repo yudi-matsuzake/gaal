@@ -4,11 +4,13 @@ DONE:
 	* Alterado pra python e estrutura feita **MELHORADO**
 	* linha de comando
 	* Ordem da matriz identidade deveria ser quadrada
+	* nas funções auxiliares do módulo gaal.Matriz, foi colocado o _ na frente, pois não é recomendado utilizálos diretamente.
 
 TODO:
 	* Matrizes e suas operações:
-		[ 1/2 ] Classe e estrutura
+		[ x ] Classe e estrutura inicial
 		[ ] Operações
+			[ x ] Negação
 			[ x ] Adição
 			[ x ] Subtração
 			[ x ] Multiplicação
@@ -16,10 +18,15 @@ TODO:
 				[ x ] de matrizes
 		[ x ] Impressão dela na tela de maneira maneira.
 		[  ] Funções para gerar matrizes
-			[ x ] Identidade
+			[  ] Diagonal
+				[ x ] Identidade
 			[ x ] Aleatória
+				[   ] Simétrica
+				[   ] Triangular superior
+				[   ] Triangular inferior
 			[   ] Da entrada padrão
 				[ x ] Até o EOF
 				[   ] Com a ordem dada
+			[ x ] Transposta
 		[  ] Deixar as funções de operações auxiliares "privadas" com '_' na frente
 	* Arrumar a instalação (pensar em algo melhor que a gambirra atual AEUHAE)
