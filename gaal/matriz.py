@@ -62,7 +62,7 @@ def _la_place(M):
 	
 	det = 0
 	for i in range(M.n_coluna):
-		det += M.cofator(0,i)
+		det += M[0][i]*M.cofator(0,i)
 
 	return det
 
@@ -244,26 +244,33 @@ class Matriz:
 	
 	def cofator(self, i, j):
 		"""Retorna o cofator i j"""
-		#i+j e par?
-		if i+j%2 == 0:
-			aij = self[i][j]
-		else:
-			aij = self[i][j]*(-1)
-
-		aij *= self.submatriz(i, j).det()
-
-		return aij
-
+		cofator = self.submatriz(i, j).det()
+		#e par?
+		return cofator if (i+j)%2 == 0 else -cofator
 
 	def matriz_de_cofatores(self):
 		"""Retorna a matriz de cofatores"""
-		pass
+		M = Matriz(self.n_linha, self.n_coluna)
+		for i in range(M.n_linha):
+			for j in range(M.n_coluna):
+				M[i][j] = self.cofator(i, j)
+
+		return M
 
 	#adjunta
-	def matriz_adjunta(self):
+	def adjunta(self):
 		"""Retorna matriz adjunta"""
-		pass
+		return self.matriz_de_cofatores().transposta()
+	
+	def traco(self):
+		"""Retorna o traço da matriz"""
+		if not self.quadrada():
+			return None
 		
+		traco=0
+		for i in range(self.n_linha):
+			traco+=self[i][i]
+		return traco
 
 	#DETERMINANTE
 	def det(self):

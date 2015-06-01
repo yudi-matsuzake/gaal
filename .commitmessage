@@ -9,17 +9,17 @@ DONE:
 TODO:
 	* Matrizes e suas operações:
 		[ x ] Classe e estrutura inicial
-		[ ] Operações
+		[  ] Operações
 			[ x ] Negação
 			[ x ] Adição
 			[ x ] Subtração
 			[ x ] Multiplicação
 				[ x ] com constante
 				[ x ] de matrizes
-			[   ] Traço
-			[   ] Determinante
+			[ x ] Traço
+			[ x ] Determinante
 		[ x ] Impressão dela na tela de maneira maneira.
-		[  ] Funções para gerar matrizes
+		[   ] Funções para gerar matrizes
 			[  ] Diagonal
 				[ x ] Identidade
 			[ x ] Aleatória
@@ -31,7 +31,7 @@ TODO:
 				[   ] Com a ordem dada
 			[ x ] Transposta
 			[ x ] Matriz de cofator
-			[   ] Adjunta
-			[   ] Inversa
+			[ x ] Adjunta
+			[ x ] Inversa
 		[ x ] Deixar as funções de operações auxiliares "privadas" com '_' na frente
 	* Arrumar a instalação (pensar em algo melhor que a gambirra atual AEUHAE)
