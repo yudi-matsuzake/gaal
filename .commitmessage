@@ -16,6 +16,8 @@ TODO:
 			[ x ] Multiplicação
 				[ x ] com constante
 				[ x ] de matrizes
+			[   ] Traço
+			[   ] Determinante
 		[ x ] Impressão dela na tela de maneira maneira.
 		[  ] Funções para gerar matrizes
 			[  ] Diagonal
@@ -29,5 +31,7 @@ TODO:
 				[   ] Com a ordem dada
 			[ x ] Transposta
 			[ x ] Matriz de cofator
+			[   ] Adjunta
+			[   ] Inversa
 		[ x ] Deixar as funções de operações auxiliares "privadas" com '_' na frente
 	* Arrumar a instalação (pensar em algo melhor que a gambirra atual AEUHAE)

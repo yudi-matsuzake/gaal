@@ -54,7 +54,7 @@ def _build(L, n_coluna):
 			M[i][j] = L[i][j]
 	return M
 
-def from_stdin():
+def pela_entrada_padrao():
 	"""
 	Lê a entrada padrão até o EOF e a transforma em uma matriz.
 	Amxn=

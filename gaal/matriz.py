@@ -51,33 +51,20 @@ def _multiplicacao(A, B):
 
 
 #LAPLACE
-#def _la_range(i, k):
-#	"""
-#	Criar uma lista de i até n, sem o j. Essa função é pra evitar uma comparação em toda iteração
-#	"""
-#
-#	L = []
-#	for k in range(M.n_coluna):
-#		if k != j
-#			L.append(k)
-#	return L
-#
-#def _la_place(M, i=None, j=0):
-#	"""Função auxiliar para o cálculo do determinante"""
-#
-#	if i == None:
-#		i = range(M.n_coluna)
-#	
-#	if len(i) <=1 :
-#		return i[0]
-#	
-#	det=0
-#
-#	for k in i:
-#		mul = 1 if ((k + j)%2) == 0 else -1
-#		det += M[k][j] * mul * _la_place(M, _la_range(M, i, k), j+1)
 
+def _la_place(M):
+	"""Função auxiliar para o cálculo do determinante"""
+	if M.n_linha == 1 and M.n_coluna == 1:
+		return M[0][0]
+	
+	if M.n_linha == 2 and M.n_coluna == 2:
+		return M[0][0] * M[1][1] - M[0][1] * M[1][0]
+	
+	det = 0
+	for i in range(M.n_coluna):
+		det += M.cofator(0,i)
 
+	return det
 
 #---Estruturas---#
 class Matriz:
@@ -229,12 +216,12 @@ class Matriz:
 		"""Retorna true se a matriz é quadrada e false, se não"""
 		return self.n_linha == self.n_coluna
 	
-	def matriz_de_cofator(self, i, j):
-		"""Retorna a matriz de cofator i, j"""
+	def submatriz(self, i, j):
+		"""Retorna a submatriz sem a linha i e a coluna j"""
 		if (i == None or j == None) or (self.n_linha <= 1 and self.n_coluna <= 1):
 			return None
 
-		M = Matriz(self.n_coluna - 1, self.n_linha - 1);
+		M = Matriz(self.n_linha - 1, self.n_coluna - 1);
 		
 		# Tira a linha i
 		if i == 0:
@@ -254,6 +241,29 @@ class Matriz:
 				M.matriz[x] = M.matriz[x][:j] + M.matriz[x][j+1:]
 		
 		return M
+	
+	def cofator(self, i, j):
+		"""Retorna o cofator i j"""
+		#i+j e par?
+		if i+j%2 == 0:
+			aij = self[i][j]
+		else:
+			aij = self[i][j]*(-1)
+
+		aij *= self.submatriz(i, j).det()
+
+		return aij
+
+
+	def matriz_de_cofatores(self):
+		"""Retorna a matriz de cofatores"""
+		pass
+
+	#adjunta
+	def matriz_adjunta(self):
+		"""Retorna matriz adjunta"""
+		pass
+		
 
 	#DETERMINANTE
 	def det(self):
