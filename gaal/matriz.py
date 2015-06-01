@@ -49,6 +49,36 @@ def _multiplicacao(A, B):
 	
 	return M
 
+
+#LAPLACE
+#def _la_range(i, k):
+#	"""
+#	Criar uma lista de i até n, sem o j. Essa função é pra evitar uma comparação em toda iteração
+#	"""
+#
+#	L = []
+#	for k in range(M.n_coluna):
+#		if k != j
+#			L.append(k)
+#	return L
+#
+#def _la_place(M, i=None, j=0):
+#	"""Função auxiliar para o cálculo do determinante"""
+#
+#	if i == None:
+#		i = range(M.n_coluna)
+#	
+#	if len(i) <=1 :
+#		return i[0]
+#	
+#	det=0
+#
+#	for k in i:
+#		mul = 1 if ((k + j)%2) == 0 else -1
+#		det += M[k][j] * mul * _la_place(M, _la_range(M, i, k), j+1)
+
+
+
 #---Estruturas---#
 class Matriz:
 	"""Representa a estrutura matemática de uma matriz"""
@@ -65,8 +95,12 @@ class Matriz:
 		return (self.n_linha, self.n_coluna)
 
 	def __str__(self):
+		"""
+		Imprime a matriz de um jeito bonito :3
+		"""
 		maiortamanho_coluna = [0]*self.n_coluna
-
+		
+		#cria uma lista com os maiores tamanho de cada coluna, para depois tabular certinho
 		for i in self.matriz:
 			for j in range(len(i)):
 				cel_size = len(str(i[j]))
@@ -74,7 +108,8 @@ class Matriz:
 					maiortamanho_coluna[j] = cel_size
 
 		string_format = ""
-
+		
+		#cria strings de formataço de cada coluna utilizando informações da iteração anterior
 		for i in range(self.n_coluna):
 			string_format = string_format + ( '{' + str(i) + ':' + str(maiortamanho_coluna[i]) + 'd' + '} ' )
 
@@ -148,7 +183,7 @@ class Matriz:
 		return M
 	
 
-	#COMPARE
+	#COMPARAÇÃO ==
 	def __eq__(self, other):
 		"""Compara duas matrizes"""
 		#Estou comparando matriz com matriz?
@@ -182,9 +217,51 @@ class Matriz:
 		return self.matriz.__iter__()
 	
 	def transposta(self):
+		"""Retorna a matriz transposta de M"""
 		M = Matriz(self.n_coluna, self.n_linha)
 		for i in range(M.n_linha):
 			for j in range(M.n_coluna):
 				M[i][j] = self[j][i]
 		return M
 	
+	#É quadrada?
+	def quadrada(self):
+		"""Retorna true se a matriz é quadrada e false, se não"""
+		return self.n_linha == self.n_coluna
+	
+	def matriz_de_cofator(self, i, j):
+		"""Retorna a matriz de cofator i, j"""
+		if (i == None or j == None) or (self.n_linha <= 1 and self.n_coluna <= 1):
+			return None
+
+		M = Matriz(self.n_coluna - 1, self.n_linha - 1);
+		
+		# Tira a linha i
+		if i == 0:
+			M.matriz = self.matriz[1:]
+		elif i >= self.n_linha-1:
+			M.matriz = self.matriz[:self.n_linha-1]
+		else:
+			M.matriz = self.matriz[:i] + self.matriz[i+1:]
+
+		# Tira a coluna j
+		for x in range(M.n_linha):
+			if j == 0:
+				M.matriz[x] = M.matriz[x][1:]
+			elif j >= self.n_coluna-1:
+				M.matriz[x] = M.matriz[x][:M.n_coluna]
+			else:
+				M.matriz[x] = M.matriz[x][:j] + M.matriz[x][j+1:]
+		
+		return M
+
+	#DETERMINANTE
+	def det(self):
+		"""
+		Retorna o inteiro determinante associado a matriz
+		Método de laplace
+		"""
+		if not self.quadrada() :
+			return False
+
+		return _la_place(self)

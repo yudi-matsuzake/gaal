@@ -28,5 +28,6 @@ TODO:
 				[ x ] Até o EOF
 				[   ] Com a ordem dada
 			[ x ] Transposta
-		[  ] Deixar as funções de operações auxiliares "privadas" com '_' na frente
+			[ x ] Matriz de cofator
+		[ x ] Deixar as funções de operações auxiliares "privadas" com '_' na frente
 	* Arrumar a instalação (pensar em algo melhor que a gambirra atual AEUHAE)
